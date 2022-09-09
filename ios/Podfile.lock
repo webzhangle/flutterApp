@@ -1,0 +1,74 @@
+PODS:
+  - AMap3DMap (8.1.0):
+    - AMapFoundation (~> 1.6.9)
+  - amap_flutter_location (0.0.1):
+    - AMapLocation
+    - Flutter
+  - amap_flutter_map (0.0.1):
+    - AMap3DMap
+    - Flutter
+  - AMapFoundation (1.6.9)
+  - AMapLocation (2.8.0):
+    - AMapFoundation (~> 1.6.9)
+  - device_info (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - permission_handler_apple (9.0.4):
+    - Flutter
+  - shared_preferences_ios (0.0.1):
+    - Flutter
+  - url_launcher_ios (0.0.1):
+    - Flutter
+  - webview_flutter_wkwebview (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - amap_flutter_location (from `.symlinks/plugins/amap_flutter_location/ios`)
+  - amap_flutter_map (from `.symlinks/plugins/amap_flutter_map/ios`)
+  - device_info (from `.symlinks/plugins/device_info/ios`)
+  - Flutter (from `Flutter`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+  - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
+  - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
+  - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/ios`)
+
+SPEC REPOS:
+  trunk:
+    - AMap3DMap
+    - AMapFoundation
+    - AMapLocation
+
+EXTERNAL SOURCES:
+  amap_flutter_location:
+    :path: ".symlinks/plugins/amap_flutter_location/ios"
+  amap_flutter_map:
+    :path: ".symlinks/plugins/amap_flutter_map/ios"
+  device_info:
+    :path: ".symlinks/plugins/device_info/ios"
+  Flutter:
+    :path: Flutter
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
+  shared_preferences_ios:
+    :path: ".symlinks/plugins/shared_preferences_ios/ios"
+  url_launcher_ios:
+    :path: ".symlinks/plugins/url_launcher_ios/ios"
+  webview_flutter_wkwebview:
+    :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
+
+SPEC CHECKSUMS:
+  AMap3DMap: 135eaaf64a29aeb2f0bca07670db26fbf3271245
+  amap_flutter_location: 44ff5beb64f42e0bf5feb402fe299dac0013af6f
+  amap_flutter_map: 979e54d227cedac6c7504a2151bfbf3bcf96760a
+  AMapFoundation: 8d8ecbb0b2e9ce5487995360d26c885d94642bfd
+  AMapLocation: 5ef44a1117be7dc541cb7a7d43d03c5ee91e4387
+  device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  permission_handler_apple: 44366e37eaf29454a1e7b1b7d736c2cceaeb17ce
+  shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
+  url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
+  webview_flutter_wkwebview: b7e70ef1ddded7e69c796c7390ee74180182971f
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.11.3
