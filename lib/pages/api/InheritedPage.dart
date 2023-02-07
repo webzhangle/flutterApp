@@ -4,15 +4,17 @@
  * @Autor: zhangle
  * @Date: 2022-07-13 23:19:02
  * @LastEditors: zhangle
- * @LastEditTime: 2022-08-01 16:20:33
+ * @LastEditTime: 2023-02-07 13:44:27
  */
 import 'package:app/components/basics/Button/index.dart';
 import 'package:flutter/material.dart';
 import 'package:app/store/index.dart';
+
 class InheritedPage extends StatefulWidget {
   String title;
   dynamic arguments;
-  InheritedPage({Key? key, required this.title, this.arguments}) : super(key: key);
+  InheritedPage({Key? key, required this.title, this.arguments})
+      : super(key: key);
 
   @override
   State<InheritedPage> createState() => _InheritedPageState();
@@ -24,20 +26,21 @@ class _InheritedPageState extends State<InheritedPage> {
     super.didChangeDependencies();
     print('InheritedPage didChangeDependencies');
   }
+
   @override
   Widget build(BuildContext context) {
     print('InheritedPagebuild');
     return Scaffold(
-        appBar: AppBar(title: Text(widget.title),),
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              ShareDataWidget(
-                data: UserInforValueNotifier(UserInfor(name: 'zhangle', age: 0)),
-                child: Parent()
-              ),
-            ]
-          ),
+          child: Column(children: [
+            ShareDataWidget(
+                data:
+                    UserInforValueNotifier(UserInfor1(name: 'zhangle', age: 0)),
+                child: Parent()),
+          ]),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -45,8 +48,7 @@ class _InheritedPageState extends State<InheritedPage> {
             // print(ShareDataWidget.of(context));
           },
           child: const Icon(Icons.add),
-        )
-      );
+        ));
   }
 }
 
@@ -63,18 +65,13 @@ class _ParentState extends State<Parent> {
     super.didChangeDependencies();
     print('Parent didChangeDependencies');
   }
+
   @override
   Widget build(BuildContext context) {
     print('Parentbuild');
     return Container(
       child: Column(
-        children: [
-          Text('我是爷爷'),
-          Father(),
-          Mother(
-            child: Son()
-          )
-        ],
+        children: [Text('我是爷爷'), Father(), Mother(child: Son())],
       ),
     );
   }
@@ -93,6 +90,7 @@ class _FatherState extends State<Father> {
     super.didChangeDependencies();
     print('Father didChangeDependencies');
   }
+
   @override
   Widget build(BuildContext context) {
     print('Fatherbuild');
@@ -104,7 +102,7 @@ class _FatherState extends State<Father> {
 
 class Mother extends StatefulWidget {
   Widget child;
-  Mother({Key? key,required this.child}) : super(key: key);
+  Mother({Key? key, required this.child}) : super(key: key);
 
   @override
   State<Mother> createState() => _MotherState();
@@ -116,15 +114,18 @@ class _MotherState extends State<Mother> {
     super.didChangeDependencies();
     print('Mother didChangeDependencies');
   }
+
   @override
   Widget build(BuildContext context) {
     print('Motherbuild');
     return Column(
       children: [
         Text('我是妈妈'),
-        Button(text: '妈妈按钮点击', onTap: () {
-          ShareDataWidget.of(context)?.data.setName('123');
-        }),
+        Button(
+            text: '妈妈按钮点击',
+            onTap: () {
+              ShareDataWidget.of(context)?.data.setName('123');
+            }),
         widget.child
       ],
     );
@@ -144,20 +145,23 @@ class _SonState extends State<Son> {
     super.didChangeDependencies();
     print('Son didChangeDependencies');
   }
+
   @override
   Widget build(BuildContext context) {
     print('Sonbuild');
     print(ShareDataWidget.of(context)!.data.value.name);
     return ValueListenableBuilder(
       valueListenable: ShareDataWidget.of(context)!.data,
-      builder: (BuildContext context, UserInfor value, Widget? child) {
+      builder: (BuildContext context, UserInfor1 value, Widget? child) {
         return Column(
           children: [
             Text('我是儿子'),
             Text(value.name),
-            Button(text: '按钮点击', onTap: () {
-              ShareDataWidget.of(context)?.data.setName('哈哈哈');
-            })
+            Button(
+                text: '按钮点击',
+                onTap: () {
+                  ShareDataWidget.of(context)?.data.setName('哈哈哈');
+                })
           ],
         );
       },

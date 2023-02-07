@@ -16,6 +16,7 @@
  */
 import 'package:flutter/material.dart';
 import 'package:app/components/basics/Button/index.dart';
+
 class ButtonPage extends StatefulWidget {
   ButtonPage({Key? key, required this.title, this.arguments}) : super(key: key);
   final String title;
@@ -32,54 +33,69 @@ class _ButtonPageState extends State<ButtonPage> {
     super.initState();
     print(widget.arguments['str']);
   }
-  void onPressed () {}
+
+  void onPressed() {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              child: Button(text: '普通按钮', onTap: onPressed),
-            ),
-            Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              child: Button(text: '圆弧按钮', borderRadius: 6, onTap: onPressed),
-            ),
-            Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              child: Button(text: '圆角按钮', round: true, onTap: onPressed),
-            ),
-            Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              child: Button(text: '块级按钮', block: true, onTap: onPressed),
-            ),
-            Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              child: Button(text: '红色的块级按钮', backgroundColor: const Color.fromRGBO(255, 0, 0, 1), block: true, onTap: onPressed),
-            ),
-            Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              child: Button(text: '禁用按钮', block: true, disabled: true, onTap: onPressed),
-            ),
-            Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              child: Button(text: '朴素按钮', type: 'plain', block: true, onTap: onPressed),
-            ),
-            Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              child: Button(text: '圆角按钮', type: 'plain', round: true, onTap: onPressed),
-            ),
-            Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              child: Button(text: '朴素按钮', type: 'plain', block: true, disabled: true, onTap: onPressed),
-            )
-          ],
-        ),
-      )
-    );
+        appBar: AppBar(title: Text(widget.title)),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                child: Button(text: '普通按钮', onTap: onPressed),
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                child: Button(text: '圆弧按钮', borderRadius: 6, onTap: onPressed),
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                child: Button(text: '圆角按钮', round: true, onTap: onPressed),
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                child: Button(text: '块级按钮', block: true, onTap: onPressed),
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                child: Button(
+                    text: '红色的块级按钮',
+                    backgroundColor: const Color.fromRGBO(255, 0, 0, 1),
+                    block: true,
+                    onTap: onPressed),
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                child: Button(
+                    text: '禁用按钮',
+                    block: true,
+                    disabled: true,
+                    onTap: onPressed),
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                child: Button(
+                    text: '朴素按钮', type: 'plain', block: true, onTap: onPressed),
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                child: Button(
+                    text: '圆角按钮', type: 'plain', round: true, onTap: onPressed),
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                child: Button(
+                    text: '朴素按钮',
+                    type: 'plain',
+                    block: true,
+                    disabled: true,
+                    onTap: onPressed),
+              )
+            ],
+          ),
+        ));
   }
 }

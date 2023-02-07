@@ -84,5 +84,7 @@
 	<key>NSAppleMusicUsageDescription</key>
 	<string>需要您的同意，才能访问媒体资料库</string>
 	
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
 </dict>
 </plist>

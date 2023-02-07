@@ -7,6 +7,7 @@
  * @LastEditTime: 2022-07-11 23:32:44
  */
 import 'package:flutter/material.dart';
+
 class RadioPage extends StatefulWidget {
   RadioPage({Key? key, required this.title, this.arguments}) : super(key: key);
   String title;
@@ -23,9 +24,7 @@ class _RadioPageState extends State<RadioPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              
-            ),
+            Container(),
           ],
         ),
       ),

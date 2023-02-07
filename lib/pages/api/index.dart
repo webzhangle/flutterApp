@@ -8,6 +8,7 @@
  */
 import 'package:flutter/material.dart';
 import 'package:app/components/basics/Button/index.dart';
+
 class ApiIndex extends StatefulWidget {
   ApiIndex({Key? key}) : super(key: key);
   @override
@@ -23,91 +24,113 @@ class _ApiIndexState extends State<ApiIndex> {
         children: [
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            child: Button(text: '网络请求', block: true, onTap: () {
-              Navigator.pushNamed(context, '/http', arguments: {
-                "str": 'http'
-              });
-            }),
+            child: Button(
+                text: '网络请求',
+                block: true,
+                onTap: () {
+                  Navigator.pushNamed(context, '/http',
+                      arguments: {"str": 'http'});
+                }),
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            child: Button(text: '本地存储', block: true, onTap: () {
-              Navigator.pushNamed(context, '/shared_preferences', arguments: {
-                "str": 'shared_preferences'
-              });
-            }),
+            child: Button(
+                text: '本地存储',
+                block: true,
+                onTap: () {
+                  Navigator.pushNamed(context, '/shared_preferences',
+                      arguments: {"str": 'shared_preferences'});
+                }),
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            child: Button(text: '状态管理InheritedWidget', block: true, onTap: () {
-              Navigator.pushNamed(context, '/inherited', arguments: {
-                "str": 'inherited'
-              });
-            }),
+            child: Button(
+                text: '状态管理InheritedWidget',
+                block: true,
+                onTap: () {
+                  Navigator.pushNamed(context, '/inherited',
+                      arguments: {"str": 'inherited'});
+                }),
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            child: Button(text: '设备信息', block: true, onTap: () {
-              Navigator.pushNamed(context, '/device_info', arguments: {
-                "str": 'device_info'
-              });
-            }),
+            child: Button(
+                text: '设备信息',
+                block: true,
+                onTap: () {
+                  Navigator.pushNamed(context, '/device_info',
+                      arguments: {"str": 'device_info'});
+                }),
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            child: Button(text: 'MediaQuery', block: true, onTap: () {
-              Navigator.pushNamed(context, '/mediaQuery', arguments: {
-                "str": 'mediaQuery'
-              });
-            }),
+            child: Button(
+                text: 'MediaQuery',
+                block: true,
+                onTap: () {
+                  Navigator.pushNamed(context, '/mediaQuery',
+                      arguments: {"str": 'mediaQuery'});
+                }),
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            child: Button(text: '高德地图', block: true, onTap: () {
-              Navigator.pushNamed(context, '/amap', arguments: {
-                "str": 'amap'
-              });
-            }),
+            child: Button(
+                text: '高德地图',
+                block: true,
+                onTap: () {
+                  Navigator.pushNamed(context, '/amap',
+                      arguments: {"str": 'amap'});
+                }),
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            child: Button(text: 'webview', block: true, onTap: () {
-              Navigator.pushNamed(context, '/webview', arguments: {
-                "str": 'webview'
-              });
-            }),
+            child: Button(
+                text: 'webview',
+                block: true,
+                onTap: () {
+                  Navigator.pushNamed(context, '/webview',
+                      arguments: {"str": 'webview'});
+                }),
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            child: Button(text: '想去哪儿就去哪儿', block: true, onTap: () {
-              Navigator.pushNamed(context, '/url_launcher', arguments: {
-                "str": 'url_launcher'
-              });
-            }),
+            child: Button(
+                text: '想去哪儿就去哪儿',
+                block: true,
+                onTap: () {
+                  Navigator.pushNamed(context, '/url_launcher',
+                      arguments: {"str": 'url_launcher'});
+                }),
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            child: Button(text: 'FutureBuilder异步更新', block: true, onTap: () {
-              Navigator.pushNamed(context, '/futureBuilder', arguments: {
-                "str": 'FutureBuilder'
-              });
-            }),
+            child: Button(
+                text: 'FutureBuilder异步更新',
+                block: true,
+                onTap: () {
+                  Navigator.pushNamed(context, '/futureBuilder',
+                      arguments: {"str": 'FutureBuilder'});
+                }),
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            child: Button(text: 'StreamBuilderr异步更新', block: true, onTap: () {
-              Navigator.pushNamed(context, '/streamBuilder', arguments: {
-                "str": 'streamBuilder'
-              });
-            }),
+            child: Button(
+                text: 'StreamBuilderr异步更新',
+                block: true,
+                onTap: () {
+                  Navigator.pushNamed(context, '/streamBuilder',
+                      arguments: {"str": 'streamBuilder'});
+                }),
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            child: Button(text: '权限设置', block: true, onTap: () {
-              Navigator.pushNamed(context, '/permission', arguments: {
-                "str": 'permission'
-              });
-            }),
+            child: Button(
+                text: '权限设置',
+                block: true,
+                onTap: () {
+                  Navigator.pushNamed(context, '/permission',
+                      arguments: {"str": 'permission'});
+                }),
           ),
         ],
       ),

@@ -4,47 +4,53 @@
  * @Autor: zhangle
  * @Date: 2022-07-07 16:09:07
  * @LastEditors: zhangle
- * @LastEditTime: 2022-07-08 20:02:15
+ * @LastEditTime: 2023-02-06 09:17:04
  */
 import 'package:flutter/material.dart';
-class CheckboxZ extends StatefulWidget {
-  const CheckboxZ({Key? key, required this.value, required this.onChanged, this.lable}) : super(key: key);
-  final bool value;
-  final Function onChanged;
-  final String? lable;
+import 'package:app/components/basics/IconFont/index.dart';
+
+class TsaCheckbox extends StatefulWidget {
+  TsaCheckbox({Key? key, required this.value, this.lable, this.onChanged}) : super(key: key);
+  bool value;
+  Function? onChanged;
+  String? lable;
   @override
-  State<CheckboxZ> createState() => _CheckboxZState();
+  State<TsaCheckbox> createState() => _TsaCheckboxState();
 }
 
-class _CheckboxZState extends State<CheckboxZ> {
+class _TsaCheckboxState extends State<TsaCheckbox> {
+  bool checked = false;
+
   @override
-  bool value = false;
   void initState() {
+    // TODO: implement initState
     super.initState();
-    setState(() {
-      value = widget.value;
-    });
+    checked = widget.value;
   }
-  void onChanged (val) {
-    setState(() {
-      value = val;
-      widget.onChanged(value);
-    });
-  }
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Row(
-        children: [
-          Checkbox(
-            value: value,
-            onChanged: onChanged
-          ),
-          Container(
-            child: widget.lable != null ? Text(widget.lable!): null,
-          )
-        ],
+      child: GestureDetector(
+        onTap: () {
+          setState(() {
+            checked = !checked;
+          });
+          if (widget.onChanged != null) {
+            
+            widget.onChanged!(checked);
+          }
+        },
+        child: Row(
+          children: [
+            Container(
+              child: Icon(checked == false ? IconFont.checkbox : IconFont.radio, size: 12.0,),
+            ),
+            Container(
+              child: widget.lable == null ? null : Text(widget.lable!),
+            )
+          ],
+        ),
       )
     );
   }

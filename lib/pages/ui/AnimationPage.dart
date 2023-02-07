@@ -9,32 +9,36 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:app/components/basics/IconFont/index.dart';
+
 class AnimationPage extends StatefulWidget {
-  AnimationPage({Key? key, required this.title, this.arguments}) : super(key: key);
+  AnimationPage({Key? key, required this.title, this.arguments})
+      : super(key: key);
   String title;
   dynamic arguments;
   @override
   State<AnimationPage> createState() => _AnimationState();
 }
 
-class _AnimationState extends State<AnimationPage> with TickerProviderStateMixin {
+class _AnimationState extends State<AnimationPage>
+    with TickerProviderStateMixin {
   late AnimationController _controller;
   late Animation opacityAnimation;
   @override
   void initState() {
-    _controller = AnimationController(
-      duration: const Duration(seconds: 2),
-      vsync: this
-    )..repeat();
+    _controller =
+        AnimationController(duration: const Duration(seconds: 2), vsync: this)
+          ..repeat();
     // 透明度的 controller
     opacityAnimation = Tween(begin: 0.0, end: 1.0).animate(_controller);
     super.initState();
   }
+
   @override
   void dispose() {
     _controller.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,9 +59,7 @@ class _AnimationState extends State<AnimationPage> with TickerProviderStateMixin
                   child: Container(
                     width: 200.0,
                     height: 200.0,
-                    decoration: const BoxDecoration(
-                      color: Colors.deepOrange
-                    ),
+                    decoration: const BoxDecoration(color: Colors.deepOrange),
                   ),
                 );
               },
@@ -83,13 +85,11 @@ class _AnimationState extends State<AnimationPage> with TickerProviderStateMixin
               animation: _controller,
               builder: (BuildContext context, Widget? child) {
                 return Transform.translate(
-                  offset: Offset(200* _controller.value, 0),
+                  offset: Offset(200 * _controller.value, 0),
                   child: Container(
                     width: 300.0,
                     height: 200.0,
-                    decoration: const BoxDecoration(
-                      color: Colors.amber
-                    ),
+                    decoration: const BoxDecoration(color: Colors.amber),
                   ),
                 );
               },

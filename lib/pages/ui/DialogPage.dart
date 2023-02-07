@@ -9,6 +9,7 @@
 import 'package:flutter/material.dart';
 import 'package:app/components/basics/Button/index.dart';
 import 'package:app/components/basics/Dialog/index.dart';
+
 class DialogPage extends StatefulWidget {
   DialogPage({Key? key, required this.title, this.arguments}) : super(key: key);
   final String title;
@@ -28,15 +29,23 @@ class _DialogPageState extends State<DialogPage> {
           children: [
             Container(
               margin: const EdgeInsets.only(bottom: 10),
-              child: Button(text: '显示alert弹窗', block: true, onTap: () {
-                HapyDialog.show(context, title: '我的标题1', content: '我是相应的内容2！');
-              }),
+              child: Button(
+                  text: '显示alert弹窗',
+                  block: true,
+                  onTap: () {
+                    HapyDialog.show(context,
+                        title: '我的标题1', content: '我是相应的内容2！');
+                  }),
             ),
             Container(
               margin: const EdgeInsets.only(bottom: 10),
-              child: Button(text: '显示confirm弹窗', block: true, onTap: () {
-                HapyDialog.show(context, type: 'confirm', title: '我的标题1', content: '我是相应的内容2！');
-              }),
+              child: Button(
+                  text: '显示confirm弹窗',
+                  block: true,
+                  onTap: () {
+                    HapyDialog.show(context,
+                        type: 'confirm', title: '我的标题1', content: '我是相应的内容2！');
+                  }),
             )
           ],
         ),

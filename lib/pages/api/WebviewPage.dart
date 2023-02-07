@@ -13,8 +13,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:io';
+
 class WebviewPage extends StatefulWidget {
-  WebviewPage({Key? key, required this.title, this.arguments}) : super(key: key);
+  WebviewPage({Key? key, required this.title, this.arguments})
+      : super(key: key);
   String title;
   dynamic arguments;
   @override
@@ -25,23 +27,27 @@ class _WebviewPageState extends State<WebviewPage> {
   late Map result = <String, dynamic>{};
   late WebViewController _webViewController;
   JavascriptChannel jsBridge(BuildContext context) => JavascriptChannel(
-    name: 'jsbridge', // 与h5 端的一致 不然收不到消息
-    onMessageReceived: (JavascriptMessage message) async {
-      print(message.message);
-      setState(() {
-        result = jsonDecode(message.message);
+      name: 'jsbridge', // 与h5 端的一致 不然收不到消息
+      onMessageReceived: (JavascriptMessage message) async {
+        print(message.message);
+        setState(() {
+          result = jsonDecode(message.message);
+        });
       });
-  });
   @override
-   void initState() {
-     super.initState();
-     // Enable virtual display.
-     if (Platform.isAndroid) WebView.platform = AndroidWebView(); // SurfaceAndroidWebView
-   }
+  void initState() {
+    super.initState();
+    // Enable virtual display.
+    if (Platform.isAndroid)
+      WebView.platform = AndroidWebView(); // SurfaceAndroidWebView
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title),),
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
       body: Container(
         color: Colors.white,
         child: Column(
@@ -100,9 +106,11 @@ class _WebviewPageState extends State<WebviewPage> {
                 width: double.infinity,
                 height: double.infinity,
                 child: WebView(
-                  initialUrl: 'http://192.168.1.194:8099/?sourceType=954210', // 网络请求
+                  initialUrl:
+                      'http://192.168.1.194:8099/?sourceType=954210', // 网络请求
                   // initialUrl: Uri.dataFromString('assets/html/index.html', mimeType: 'text/html', encoding: Encoding.getByName('utf-8')).toString(), // 加载类似于富文本的html
-                  javascriptMode: JavascriptMode.unrestricted,  // unrestricted: 无限制，disabled：禁用，这是默认状态
+                  javascriptMode: JavascriptMode
+                      .unrestricted, // unrestricted: 无限制，disabled：禁用，这是默认状态
                 ),
               ),
             )

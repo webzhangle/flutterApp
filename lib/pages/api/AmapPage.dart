@@ -10,6 +10,7 @@
 import 'package:flutter/material.dart';
 import 'package:amap_flutter_map/amap_flutter_map.dart';
 import 'package:amap_flutter_base/amap_flutter_base.dart';
+
 class AmapPage extends StatefulWidget {
   AmapPage({Key? key, required this.title, this.arguments}) : super(key: key);
   String title;
@@ -20,27 +21,21 @@ class AmapPage extends StatefulWidget {
 
 class _AmapPageState extends State<AmapPage> {
   final AMapWidget map = const AMapWidget(
-    privacyStatement: AMapPrivacyStatement(hasShow: true, hasAgree: true, hasContains: true),
+    privacyStatement:
+        AMapPrivacyStatement(hasShow: true, hasAgree: true, hasContains: true),
     apiKey: AMapApiKey(
-      iosKey: 'e8b8d83460a6ef54082f68abcd9285e4',
-      androidKey: 'd2d49c2b246dd7c077d50c4c7bdd7fee'
-    ),
+        iosKey: 'e8b8d83460a6ef54082f68abcd9285e4',
+        androidKey: 'd2d49c2b246dd7c077d50c4c7bdd7fee'),
   );
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
       body: Column(
         children: [
-          Container(
-            width: double.infinity,
-            height: 400.0,
-            child: map
-          )
+          Container(width: double.infinity, height: 400.0, child: map)
         ],
       ),
     );
   }
-  
 }

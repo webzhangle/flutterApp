@@ -11,6 +11,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:device_info/device_info.dart';
+
 class DeviceInfo extends StatefulWidget {
   DeviceInfo({Key? key, required this.title, this.arguments}) : super(key: key);
   final String title;
@@ -27,8 +28,8 @@ class _DeviceInfoState extends State<DeviceInfo> {
   void initState() {
     super.initState();
     initPlatformState();
-    
   }
+
   Future<void> initPlatformState() async {
     Map<String, dynamic> deviceData = <String, dynamic>{};
     if (Platform.isAndroid) {
@@ -37,15 +38,13 @@ class _DeviceInfoState extends State<DeviceInfo> {
       deviceData = _readIosDeviceInfo(await deviceInfoPlugin.iosInfo);
     }
     for (var key in deviceData.keys) {
-      _deviceDataList.add({
-        'name': key,
-        'value': deviceData[key]
-      });
+      _deviceDataList.add({'name': key, 'value': deviceData[key]});
     }
     setState(() {
       _deviceData = deviceData;
     });
   }
+
   Map<String, dynamic> _readAndroidBuildData(AndroidDeviceInfo build) {
     return <String, dynamic>{
       'version.securityPatch': build.version.securityPatch,
@@ -94,32 +93,35 @@ class _DeviceInfoState extends State<DeviceInfo> {
       'utsname.machine:': data.utsname.machine,
     };
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: ListView.builder(
-          itemCount: _deviceDataList.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Row(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(right: 10, bottom: 20),
-                  child: Text(_deviceDataList[index]['name']),
-                ),
-                Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.only(bottom: 20),
-                    child: Text(_deviceDataList[index]['value'].toString(), textAlign: TextAlign.right, style: const TextStyle(fontWeight: FontWeight.bold),),
-                  ),
-                )
-              ],
-            );
-          }
-        ),
-      )
-    );
+        appBar: AppBar(title: Text(widget.title)),
+        body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: ListView.builder(
+              itemCount: _deviceDataList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Row(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(right: 10, bottom: 20),
+                      child: Text(_deviceDataList[index]['name']),
+                    ),
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        child: Text(
+                          _deviceDataList[index]['value'].toString(),
+                          textAlign: TextAlign.right,
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    )
+                  ],
+                );
+              }),
+        ));
   }
 }
