@@ -4,7 +4,7 @@
  * @Autor: zhangle
  * @Date: 2022-06-15 21:53:51
  * @LastEditors: zhangle
- * @LastEditTime: 2022-07-10 02:03:32
+ * @LastEditTime: 2023-02-07 16:21:32
  */
 /*
  * @Description: 
@@ -14,9 +14,11 @@
  * @LastEditors: zhangle
  * @LastEditTime: 2022-07-07 15:13:19
  */
+import 'package:app/store/model/app.dart';
 import 'package:flutter/material.dart';
 import 'package:app/components/basics/Button/index.dart';
-
+import 'package:provider/provider.dart';
+import 'package:app/theme/index.dart';
 class ButtonPage extends StatefulWidget {
   ButtonPage({Key? key, required this.title, this.arguments}) : super(key: key);
   final String title;
@@ -45,7 +47,15 @@ class _ButtonPageState extends State<ButtonPage> {
             children: [
               Container(
                 margin: const EdgeInsets.only(bottom: 10),
-                child: Button(text: '普通按钮', onTap: onPressed),
+                child: Button(text: '主题切换', onTap: () {
+                  final global = context.read<AppConfigNotifier>();
+                  if (global.appConfig.theme == ThemeConfig.primarySwatchColor1) {
+                    global.appConfig.theme = ThemeConfig.primarySwatchColor;
+                  } else {
+                    global.appConfig.theme = ThemeConfig.primarySwatchColor1;
+                  }
+                  global.setAppConfig = global.appConfig;
+                }),
               ),
               Container(
                 margin: const EdgeInsets.only(bottom: 10),
